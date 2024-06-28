@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         iniciarCaptcha();
       }
       // VERIFICAR SI SE MUESTRA LA HOJA DE PEDIDOS PARA INCIAR TABLA DINAMICA
-      if (url == "compras") {
+      if (url == "Compras") {
         iniciarTablaDinamica();
       }
     } catch (error) {
@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   ////////////////////////////////////////////// MENU HAMBURGESA DESPLEGABLE ////////////////////////////////////////////////
-  let menuHamburguesa = document.querySelector(".menu-desplegable");
   let botonMenu = document.querySelector("#botonMenuHamburguesa");
   let botonesNav = document.querySelector(".lista-nav");
 
@@ -350,11 +349,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   ////////////////////////////////////////////////////// SECCION CAPTCHA ////////////////////////////////////////////////////
   function iniciarCaptcha() {
     const imagenes = [
-      { src: "img/d2ycw.jpg", codigo: "d2ycw" },
-      { src: "img/fg8n4.jpg", codigo: "fg8n4" },
-      { src: "img/nmw46.jpg", codigo: "nmw46" },
-      { src: "img/p2m6n.jpg", codigo: "p2m6n" },
-      { src: "img/wf684.jpg", codigo: "wf684" },
+      { src: "TPE-WEB1/img/d2ycw.jpg", codigo: "d2ycw" },
+      { src: "TPE-WEB1/img/fg8n4.jpg", codigo: "fg8n4" },
+      { src: "TPE-WEB1/img/nmw46.jpg", codigo: "nmw46" },
+      { src: "TPE-WEB1/img/p2m6n.jpg", codigo: "p2m6n" },
+      { src: "TPE-WEB1/img/wf684.jpg", codigo: "wf684" },
     ];
 
     let indiceActual;

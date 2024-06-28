@@ -349,11 +349,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   ////////////////////////////////////////////////////// SECCION CAPTCHA ////////////////////////////////////////////////////
   function iniciarCaptcha() {
     const imagenes = [
-      { src: "TPE-WEB1/img/d2ycw.jpg", codigo: "d2ycw" },
-      { src: "TPE-WEB1/img/fg8n4.jpg", codigo: "fg8n4" },
-      { src: "TPE-WEB1/img/nmw46.jpg", codigo: "nmw46" },
-      { src: "TPE-WEB1/img/p2m6n.jpg", codigo: "p2m6n" },
-      { src: "TPE-WEB1/img/wf684.jpg", codigo: "wf684" },
+      { src: "img/d2ycw.jpg", codigo: "d2ycw" },
+      { src: "img/fg8n4.jpg", codigo: "fg8n4" },
+      { src: "img/nmw46.jpg", codigo: "nmw46" },
+      { src: "img/p2m6n.jpg", codigo: "p2m6n" },
+      { src: "img/wf684.jpg", codigo: "wf684" },
     ];
 
     let indiceActual;

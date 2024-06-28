@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     } else {
       selectTab(id);
       cargarContenido(id);
-      window.history.pushState({ id }, `${id}` `/${id}`);
+      window.history.pushState({ id }, `${id}`, `/{id}`);
     }
   }
 

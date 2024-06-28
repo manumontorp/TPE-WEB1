@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         iniciarCaptcha();
       }
       // VERIFICAR SI SE MUESTRA LA HOJA DE PEDIDOS PARA INCIAR TABLA DINAMICA
-      if (url == "compras") {
+      if (url == "Compras") {
         iniciarTablaDinamica();
       }
     } catch (error) {
@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   ////////////////////////////////////////////// MENU HAMBURGESA DESPLEGABLE ////////////////////////////////////////////////
-  let menuHamburguesa = document.querySelector(".menu-desplegable");
   let botonMenu = document.querySelector("#botonMenuHamburguesa");
   let botonesNav = document.querySelector(".lista-nav");
 

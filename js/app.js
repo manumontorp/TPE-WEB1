@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let id = event.target.id;
     if (id === "formulario-logeo" || id === undefined) {
       id = "Home";
-      window.history.pushState({ id }, `${id}`, `/{id}`);
+      window.history.pushState({ id }, `${id}`, `/${id}`);
       cargarContenido(id);
     } else {
       selectTab(id);

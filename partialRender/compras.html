@@ -1,0 +1,50 @@
+<div class="container-principal-tabla-dinamica">
+
+    <form class="form-editar-objeto">
+        <label for="nuevoNombre">Ingrese nuevo nombre: <span class="obligatorio">(*)</span></label>
+        <input type="text" id="nuevoNombre" name="nombre" required>
+
+        <label for="nuevoTelefono">Ingrese nuevo telefono: <span class="obligatorio">(*)</span></label>
+        <input type="text" pattern="\d*" id="nuevoTelefono" name="telefono" required>
+
+        <label for="nuevoEmail">Ingrese nuevo email: <span class="obligatorio">(*)</span></label>
+        <input type="email" name="email" id="nuevoEmail" required>
+
+        <label for="nuevoProducto">Ingrese nuevo producto:<span class="obligatorio">(*)</span></label>
+        <input type="text" name="producto" id="nuevoProducto" required>
+        <input type="submit" id= "editar" value="Editar">
+    </form>
+    <h2>Estas son algunas compras recientes:</h2>
+    <div class="tabla-container">
+        <table id="tabla-dinamica">
+            <thead class="encabezado-tabla">
+                <tr>
+                    <th>Usuario</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Producto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla-dinamica"></tbody>
+        </table>
+    </div>
+
+    <form id="formulario-tabla-dinamica-agregar">
+        <h3>Para realizar tu pedido, completa todos los campos:</h3>
+        <label for="nombre">Nombre completo: <span class="obligatorio">(*)</span></label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="telefono">Telefono: <span class="obligatorio">(*)</span></label>
+        <input type="text" pattern="\d*" id="telefono" name="telefono" required>
+
+        <label for="email">Email: <span class="obligatorio">(*)</span></label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="producto">Que producto desea comprar? <span class="obligatorio">(*)</span></label>
+        <input type="text" name="producto" id="producto" required>
+
+        <button type="submit" id="btn-agregar">Agregar</button>
+    </form>
+
+</div>

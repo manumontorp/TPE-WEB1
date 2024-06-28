@@ -1,0 +1,42 @@
+<div class="form-container">
+  <form id="formulario-logeo">
+    <main class="main-login">
+      <h2>Contactanos!</h2>
+      <label>Nombre<span class="obligatorio">(*)</label>
+      <input type="text" name="nombre" placeholder="Ingrese su nombre" required />
+
+      <label>Apellido<span class="obligatorio">(*)</label>
+      <input type="text" name="apellido" placeholder="Ingrese su apellido" required />
+
+      <label>Email<span class="obligatorio">(*)</label>
+      <input type="email" name="email" placeholder="ejemplo@email.com" required />
+
+      <label>Número de telefono<span class="obligatorio">(*)</label>
+      <input type="text" name="telefono" placeholder="249 111111" required />
+
+      <label>Dejanos tu mensaje:</label>
+      <textarea name="mensaje" id="mensaje" cols="20" rows="10"></textarea>
+
+      <div class="recibir-promociones">
+        <input type="checkbox" name="recordarme" checked />
+        <label>Deseo recibir promociones en mi mail</label>
+      </div>
+    </main>
+    <aside class="captcha">
+      <h2>Demostrá que sos humano</h2>
+      <p>Completá el captcha:</p>
+      <label for="input-captcha" id="incorrecto"></label>
+      <label for="input-captcha" id="correcto"></label>
+      <img id="imagen-captcha">
+      <input type="text" id="input-captcha" placeholder="Ingresá el código de la foto" required />
+      <button id="otra-img-captcha">
+        <i class="fa-solid fa-rotate-right"></i>
+      </button>
+      
+    </aside>
+    <div>
+      <input type="submit" id="enviar" value="Enviar" />
+      <p id="submit-parrafo"></p>      
+    </div>
+  </form>
+</div>

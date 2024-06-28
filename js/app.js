@@ -25,14 +25,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function push(event) {
     let id = event.target.id;
-    if (id === undefined || id === "formulario-logeo") {
+    if (window.location.pathname == "/" || window.location.pathname == "index.html" || id === "formulario-logeo") {
       id = "Home";
-      window.history.pushState({ id }, `${id}`, `/`);
+      window.history.pushState({ id }, `${id}`, `/TPE-WEB1`);
       cargarContenido(id);
     } else {
       selectTab(id);
       cargarContenido(id);
-      window.history.pushState({ id }, `${id}`, `TPE-WEB1/${id}`);
+      window.history.pushState({ id }, `${id}` `/${id}`);
     }
   }
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollear();
     contenido.innerHTML = mjeDeCarga;
     try {
-      let response = await fetch(`${window.location.origin}/partialRender/${url}.html`);
+      let response = await fetch(`${window.location.origin}TPE-WEB1/partialRender/${url}.html`);
       if (response.ok) {
         let html = await response.text();
         contenido.innerHTML = html;

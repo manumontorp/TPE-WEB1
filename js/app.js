@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function push(event) {
     let id = event.target.id;
-    if (id === "formulario-logeo" || id === undefined)) {
+    if (id === "formulario-logeo" || id === undefined) {
       id = "Home";
       window.history.pushState({ id }, `${id}`, `/{id}`);
       cargarContenido(id);

@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollear();
     contenido.innerHTML = mjeDeCarga;
     try {
-      let response = await fetch(`${window.location.origin}/TPE-WEB1/partialRender/${url}.html`);
+      let response = await fetch(`${window.location.origin}/partialRender/${url}.html`);
       if (response.ok) {
         let html = await response.text();
         contenido.innerHTML = html;

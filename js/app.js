@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let id = event.target.id;
     if (id === undefined || id === "formulario-logeo") {
       id = "Home";
-      window.history.pushState({ id }, `${id}`, `/`);
+      window.history.pushState({ id }, `${id}`, `TPE-WEB1/`);
       cargarContenido(id);
     } else {
       selectTab(id);
       cargarContenido(id);
-      window.history.pushState({ id }, `${id}`, `/${id}`);
+      window.history.pushState({ id }, `${id}`, `TPE-WEB1/${id}`);
     }
   }
 

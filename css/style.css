@@ -1,1 +1,1281 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
+* {
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+    transition: background-color 500ms;
+    scroll-behavior: smooth;
+}
+/* <======================== ESTILOS INDEX ========================> */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    background-color: #e0e0e0;
+}
+
+#contenido {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.loading {
+    height: 30vh;
+    margin: 30dvh 0;
+}
+
+header {
+    width: 100%;
+    background-color: #d61010;
+}
+
+#logo {
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 5vw;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5vw;
+    color: #e0e0e0;
+    border-radius: 2px;
+    text-shadow: 0px 5px 10px black;
+}
+
+.banner-hotweek {
+    display: none; /* Solo visible en pantalla de escritorio */
+}
+
+/* <======================== Botonera temas y boton menu hamrguesa ========================>  */
+
+.botones-burger-y-tema {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.botones-burger-y-tema>img {
+    width: 15vw;
+    padding: 2vw;
+}
+
+#botonMenuHamburguesa {
+    max-width: 10vw;
+    padding: 0;
+    margin: 1vw;
+    filter: invert(100%);
+}
+
+#temaClaro,
+#temaOscuro {
+    position: absolute;
+    right: 1vw;
+    transition: opacity 500ms ease-in-out;
+}
+
+#temaClaro {
+    /*Iniciar escondido para luego ser mostrado mediante JS cuando se cambia de tema*/
+    opacity: 0; 
+    visibility: hidden;
+}
+
+.menu-desplegable {
+    position: sticky; /* Position Sticky para dejar "pegado" arriba del todo cuando se scrollea en la pagina*/
+    top: -1px;
+    z-index: 1 /*Para que nada se superponga*/;
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    height: fit-content;
+    width: 100%;    
+    background-color: #d61010;
+}
+
+.lista-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    list-style: none;
+    opacity: 0;
+    transition: height 0.5s ease, opacity 0.5s ease;
+    background-color: black;
+}
+
+.lista-nav>li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 0%;
+    height: 0;
+    padding: 2vw 0;
+    font-weight: 300;
+    visibility: hidden;
+}
+
+.elemento-del-centro {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.lista-nav.active,
+.lista-nav.active>li {
+    height: 30vw;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.lista-nav>li>a,
+.lista-nav.active>li>a {
+    font-size: 4vw;
+    letter-spacing: 0.05vw;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    transition: font-size 0.5s ease;
+}
+
+.seleccionada {
+    color: #00ffaa !important;
+}
+
+#botonMenuHamburguesa.active {
+    filter: invert(0%);
+}
+/* <============================ FIN ESTILO MENU HAMBURGUESA  ============================> */
+
+/*<======================== ESTILOS DEL INDEX P/ CONTENEDOR PRINCIPAL ========================> */
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 10vw 0;
+}
+/* <======================== ESTILOS DEL FOOTER ========================> */
+
+footer {
+    display: flex;
+    flex-flow: column;
+    gap: 5vw;
+    min-height: 55vh;
+    padding: 10vw 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #222;
+}
+
+footer>h2 {
+    font-size: 6vw;
+}
+
+.suscribir-newsletter,
+.contactos {
+    font-size: 5vw;
+    text-align: center;
+}
+
+.suscribir-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+}
+
+.suscribir-newsletter>h3,
+.input-newsletter>label {
+    font-size: 5vw;
+    font-weight: 100;
+}
+
+.input-newsletter {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5vw;
+}
+
+input[type="submit"] {
+    height: 10vw;
+    width: 25vw;
+    padding: 1vw 1.5vw;
+    margin: 0;
+    font-size: 4vw;
+    border: none;
+    border-radius: 2vw;
+    color: #fff;
+    background-color: #d61010;
+    cursor: pointer;
+}
+
+#newsletter-email {
+    padding: 2vw;
+    width: 80%;
+    font-size: 4vw;
+    outline: none;
+    border-radius: 0.5vw;
+    border: 1px solid #b1b1b1;
+    color: #888;
+}
+
+#newsletter-email:focus {
+    border-color: #d61010;
+}
+
+.contactos {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactos>p {
+    margin: 5vw 0;
+    width: 60%;
+    font-size: 5vw;
+}
+
+
+.lista-contactos {
+    width: 60vw;
+    padding: 8vw 6vw;
+    font-size: 3.5vw;
+    list-style: none;
+    border: 1px solid #00ffaa;
+}
+
+.lista-contactos>li {
+    width: 100%;
+}
+
+.nombre-alumno {
+    font-size: 5vw;
+}
+
+.redes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-style: italic;
+    font-size: 3.5vw;
+    width: 100%;
+    color: #00ffaa;
+}
+
+.redes>img {
+    padding: 0 5vw;
+    width: 5vw;
+}
+/* <========================================= FIN ESTILO DE FOOTER ========================================> */
+
+/* <======================== COMIENZA ESTILOS DE LOS TEMPLATES PARA PARTIAL RENDER ========================> */
+
+
+/* <======================== ESTILO TEMPLATE HOME ========================> */
+
+.main-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin-bottom: 20vw;
+    width: 100%;
+    transition: 200ms;
+}
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    padding-top: 10vw;
+    transition: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -20px 25px -5px,
+        rgba(0, 0, 0, 0.01) 0px -10px 10px -5px;
+}
+
+.categoria {
+    font-size: 3vw;
+    font-weight: 800;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+.info {
+    display: inherit;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2vw;
+    flex: 1;
+    padding: 0 2vw 20vw 2vw;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.info>h3 {
+    font-size: 5vw;
+}
+
+.info>p {
+    width: 90%;
+    font-size: 4vw;
+}
+
+.descuento {
+    font-weight: 800;
+    color: #d61010;
+}
+
+.descuento::after {
+    content: "!";
+}
+
+.productos>figure>img {
+    max-height: 50vw;
+    max-width: 50%;
+    padding: 10%;
+    background-color: white;
+}
+
+/* <================== FIN PRODUCTOS ===================> */
+/* <============== COMIENZAN PUBLICIDADES ==============> */
+
+.promos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+}
+
+.promocion-desktop,
+.promocion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-height: 300px;
+    width: 40vw;
+    padding: 5vw 0;
+    margin: 0;
+}
+
+.promocion>h3 {
+    margin: 10px 0;
+    font-size: 5vw;
+}
+
+.promocion>p {
+    font-size: 3vw;
+}
+
+.promocion>figure>img,
+.promocion-desktop>figure>img {
+    max-height: 111px;
+}
+
+
+.promocion-desktop { /*Estas promociones se mostraran luego, solo para pantallas de escritorio*/
+    display: none;
+}
+/* <======================== FIN ESTILO DE TEMPLATE HOME ========================> */
+
+/* <================================ SECION TEMPLATE CONTACTO ================================> */
+
+div.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 80%;
+    padding: 2vh 0;
+    margin: 5vh 0;
+    text-align: center;
+    border-radius: 5vw;
+    background-color: #eee;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px 20px;
+}
+
+#formulario-logeo {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 1vw;
+}
+
+main.main-login {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 80%;
+    gap: 2vw;
+}
+
+aside.captcha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vw;
+    width: 90%;
+    padding-top: 1vw;
+    border-top: 1px solid #5555553b;
+}
+
+main.main-login>h2 {
+    font-size: 6vw;
+}
+
+main.main-login>label {
+    width: 80%;
+    text-align: left;
+}
+
+#mensaje {
+    height: 10vw;
+    width: 100%;
+    padding: 1vw;
+    border: 0.2vw solid #f5d7d717;
+    outline: none;
+    resize: none;
+    overflow: scroll;
+}
+
+#mensaje:focus {
+    border-color: #7427f9 ;
+    transition: 0.5s;
+}
+
+input[type="text"],
+input[type="email"] {
+    height: 5vw;
+    width: 100%;
+    padding: 1vw;
+    font-size: 4vw;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    border: 3px solid #e0e0e0;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border:3px solid #d61010;
+    transition: 0.5s;
+}
+
+input[type="email"] {
+    text-transform: lowercase;
+}
+
+aside.captcha>h2 {
+    font-size: 4.5vw;
+    font-weight: 400;
+}
+
+aside.captcha>p {
+    font-size: 3.5vw;
+    font-weight: 300;
+}
+
+#imagen-captcha {
+    width: 50%;
+}
+
+#input-captcha {
+    width: 80%;
+    text-align: center;
+}
+
+#otra-img-captcha {
+    background-color: #d61010;
+    color: #fff;
+    border: none;
+    padding: 2vw;
+}
+
+#incorrecto,
+#correcto {
+    color: red;
+    font-size: 4vw;
+}
+
+#correcto, 
+#submit-parrafo {
+    color: green;
+}
+
+#formulario-logeo > input#enviar {
+    margin: 0;
+    padding: 0.5vw 1vw;
+}
+
+/* <======================== SECCION TEMPLATE TABLA DE HORARIOS ========================> */
+
+.tabla-semanal {
+    height: 60vh;
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+    font-size: 4vw;
+    border: 2px solid;
+    border-collapse: collapse;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.1) 0px 10px 10px -5px;
+    background-color: white;
+}
+
+.encabezado-tabla {
+    background-color: #ef1010;
+}
+
+.encabezado-tabla th {
+    padding: 0 10vw;
+    text-align: center;
+    border: 1px solid #000;
+    color: #e0e0e0;
+}
+
+.cuerpo-tabla td {
+    border: 1px solid #111;
+}
+
+.cerrado {
+    font-weight: 700;
+    color: red;
+}
+/* <====================================== FIN TABLA DE HORARIOS =============================================> */
+
+/* <=================== ESTILOS TEMPLATE TABLA DE COMPRAS (TABLA DINAMICA API REST) =========================> */
+
+.container-principal-tabla-dinamica {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vw 0;
+    gap: 5vw;
+}
+
+.tabla-container {
+    width: 90%;
+    overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.1) 0px 10px 10px -5px;
+}
+
+.form-editar-objeto~h2 {
+    text-align: center;
+}
+
+#tabla-dinamica {
+    margin: 5vw;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #fff;
+}
+
+#cuerpo-tabla-dinamica td {
+    padding: 1vw 0;
+    text-align: center;
+    font-size: 4vw;
+    border: 1px solid #111;
+}
+
+/* Estilos para los botones dentro de las celdas */
+.editar-btn,
+.borrar-btn {
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    margin: 2vw 0;
+    padding: 2vw 4vw;
+    border-radius: 1vw;
+    transition: background-color 0.3s;
+}
+
+.borrar-btn {
+    background-color: #d61010;
+}
+
+.editar-btn:hover,
+.borrar-btn:hover {
+    background-color: #7427f9;
+    transition: transform 0.5s;
+}
+
+
+tr:hover {
+    font-weight: 700;
+    font-style: italic;
+    filter: contrast(50%);
+    background-color: #aeff1757;
+}
+
+/* Formulario Tabla Dinamica */
+#formulario-tabla-dinamica-agregar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    padding: 2vw 0;
+    margin: 0;
+    gap: 2vw;
+}
+
+.obligatorio,
+#formulario-tabla-dinamica-agregar>label {
+    width: 100%;
+    margin: 1vw 0;
+    font-size: 3.5vw;
+}
+
+#formulario-tabla-dinamica-agregar h3,
+#formulario-tabla-dinamica-agregar h2 {
+    width: 100%;
+    margin: 4vw auto;
+    font-size: 4vw;
+    text-align: center;
+}
+
+.obligatorio {
+    color: #d61010;
+    font-weight: 900;
+}
+
+#formulario-tabla-dinamica-agregar>input{
+    width: 50%;
+    border-radius: 0.3vw;
+    height: 6vw;
+}
+
+#btn-agregar {
+    border: none;
+    border-radius: 1vw;
+    padding: 3vw 5vw;
+    font-size: 4vw;
+    margin: 1vw 0;
+    color: #fff;
+    background-color: #d61010;
+}
+
+.form-editar-objeto {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    width: 90%;
+    border: 2px solid #3333335e;
+}
+
+.form-editar-objeto~h2 {
+    width: fit-content;
+    font-weight: 300;
+}
+
+.form-editar-objeto input,
+.form-editar-objeto label {
+    width: 50%;
+}
+
+.form-editar-objeto p {
+    width: 50%;
+    text-align: center;
+    background-color: #4CAF50;
+    padding: 2vw;
+    margin: 2vw 0;
+    border-radius: 5vw;
+}
+
+.form-editar-objeto.on {
+    display: flex;
+}
+
+
+/* <======================== FIN ESTILO DE TEMPLATES ========================> */
+
+.lista-nav > .pagina-seleccionada > a {
+    color: #aeff1757;
+}
+
+/* <======================== ESTILOS PARA TEMA OSCURO ========================> */
+
+#temaClaro.on {
+    visibility: visible;
+    opacity: 1;
+}
+
+#temaOscuro.off {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dark .form-container,
+.dark .productos,
+.dark .cuerpo-tabla {
+    background-color: #222;
+    color: #fff;
+}
+.dark .container-principal-tabla-dinamica h2,
+.dark .container-principal-tabla-dinamica h3,
+.dark .container-principal-tabla-dinamica label{
+    color: #fff;
+}
+
+.dark .container-principal-tabla-dinamica input[type="text"],
+.dark .container-principal-tabla-dinamica input[type="email"],
+.dark .container-principal-tabla-dinamica textarea,
+.dark .form-container input[type="text"],
+.dark .form-container input[type="email"],
+.dark .form-container textarea {
+    background-color: #000;
+    border: 3px solid #333;
+    color: #fff;
+}
+
+.dark input[type="text"]:focus,
+.dark input[type="email"]:focus {
+    border-color: #00ffaa;
+    transition: 0.5s;
+}
+
+body.dark {
+    background-color: #333;
+}
+
+/* <======================================== FIN MODO OSCURO ========================================> */
+
+
+
+
+
+
+
+
+
+/* <===================================== COMIENZO MEDIA QUERY  <====================================== */
+@media screen and (min-width: 854px) {
+
+    /* =================================> SECCION ESTILO INDEX <====================================== */
+    #logo {
+        font-size: 2vw;
+        text-align: left;
+        letter-spacing: 0.1vw;
+    }
+
+    .banner-hotweek {
+        display: block;
+        font-size: 0.9vw;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        color: white;
+        background-color: #7427f9;
+    }
+
+    /* ======================== BOTONERA MENU HAMBURGUESA Y CAMBIO DE TEMA ======================== */
+
+    .botones-burger-y-tema {
+        flex-direction: column;
+    }
+
+    .botones-burger-y-tema>img {
+        width: 4vw;
+    }
+
+    #botonMenuHamburguesa,
+    #botonMenuHamburguesa.active {
+        visibility: hidden;
+    }
+
+    #temaClaro,
+    #temaOscuro {
+        top: -1;
+        left: 0;
+    }
+
+    .menu-desplegable {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-start;
+        height: fit-content;
+        text-decoration: none;
+        position: static;
+    }
+
+    .lista-nav,
+    .lista-nav.active {
+        flex-direction: row;
+        opacity: 1;
+        align-items: center;
+        width: 50vw;
+    }
+
+    .lista-nav,
+    .lista-nav.active,
+    .lista-nav>li,
+    .lista-nav.active>li,
+    .lista-nav>li>a,
+    .lista-nav.active>li>a {
+        height: fit-content;
+        padding: 0;
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.2vw;
+        border: none;
+        visibility: visible;
+        background-color: inherit;
+        transition: font-size 0.5s ease;
+    }
+
+    .lista-nav>li,
+    .lista-nav.active>li {
+        border-radius: 10px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .lista-nav>li>a,
+    .lista-nav.active>li>a {
+        padding: 1vw;
+        text-shadow: 0px 5px 15px #000;
+        width: fit-content;
+    }
+
+    .lista-nav>li:hover,
+    .lista-nav.active>li:hover {
+        transform: scale(1.05);
+        transition: 0.2s;
+        background-color: #a310103b;
+    }
+
+    /* ======================== SECCION FOOTER ======================== */
+
+    footer {
+        padding: 2vw 0;
+        gap: 1vw;
+    }
+
+    footer>h2 {
+        font-size: 1.5vw;
+    }
+    
+    .suscribir-newsletter {
+        padding: 0;
+        margin: 0;
+        gap: 0.5vw;
+    }
+
+    .input-newsletter {
+        gap: 1vw;
+    }
+
+    .suscribir-newsletter>h3,
+    .input-newsletter>label {
+        font-size: 1vw;
+        font-weight: 300;
+        color: #aaa;
+    }
+
+    input[type="submit"] {
+        height: fit-content;
+        width: fit-content;
+        padding: 0.5vw 1vw;
+        margin: 0;
+        font-weight: 300;
+        font-size: 1.2vw;
+        border-radius: 0.2vw;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    #btn-agregar:hover {
+        background-color: #a61050;
+    }
+
+    #newsletter-email {
+        width: 20vw;
+        padding: 0.5vw 1vw;
+        font-size: 1vw;
+        font-weight: 700;
+        color: #333;
+        border: 0.2vw solid #b1b1b1;
+        border-radius: 0.5vw;
+        transition: border-color 0.4s ease-in-out;
+    }  
+
+    .contactos {
+        flex-direction: row;
+    }
+
+    .contactos>p {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        font-size: 1.3vw;
+        font-weight: 300;
+    }
+
+    .lista-contactos {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 0.5vw;
+        width: 25vw;
+        padding: 1vw;
+        margin: 1vw 0;
+        font-size: 1.2vw;
+        font-weight: 300;
+    }
+
+    .lista-contactos>li {
+        width: 100%;
+    }
+
+    .nombre-alumno {
+        font-size: 1.5vw;
+    }
+
+    .redes {
+        flex-direction: row;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        font-size: 1vw;
+        font-weight: 300;
+    }
+
+    .redes:hover {
+        transform: scale(1.2);
+        transition: 0.5s;
+    }
+
+    .redes>img {
+        padding: 0 3vw;
+        width: 2vw;
+    }    
+
+    /* ======================== TEMPLATES ======================== */
+
+    /* HOME */
+        /* PRODUCTOS */
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0;
+        margin: 5vw 0 0;
+    }
+
+    .main-index {
+        flex-flow: row wrap;
+        gap: 2vw;
+        width: 70%;
+    }
+
+    .productos {
+        justify-content: flex-start;
+        flex: 1;
+        min-height: 25vw;
+        min-width: 250px;
+        padding-top: 1vw;
+    }
+
+    .productos:hover {
+        transform: scale(1.05);
+        filter: contrast(50%);
+    }
+
+    .promocion:hover,
+    .promocion-desktop:hover {
+        transform: scale(1.1);
+        transition: 0.8s;
+    }
+
+    .categoria {
+        font-size: 0.6vw;
+    }
+
+    .info {
+        justify-content: flex-start;
+        padding: 0;
+        margin: 0;
+        gap: 0.5vw;
+    }
+
+    .info>h3 {
+        max-width: 90%;
+        max-height: fit-content;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .info>p {
+        font-size: 0.7rem;
+    }
+
+    .productos>figure>img {
+        max-height: 10vw;
+    }
+
+        /* ESTILO PROMOS (ACTIVA PROMOCIONES-DESKTOP OCULTAS EN MOBILE */
+    .promos {
+        flex-flow: row wrap;
+        gap: 1vw;
+        width: 15%;
+        padding: 2vw 0;
+    }
+
+    .promocion-desktop {
+        display: flex;
+    }
+
+    .promocion-desktop,
+    .promocion {
+        min-height: 10vw;
+        width: 80%;
+        padding: 0.5vw 0;
+        border: 1px solid #e0e0e0;
+        gap: 1vw;
+    }
+
+    .promocion-desktop>h3,
+    .promocion>h3 {
+        font-size: 1vw;
+        font-weight: 400;
+        width: 90%;
+    }
+
+    .promocion-desktop>p,
+    .promocion>p {
+        font-size: 0.9vw;
+        font-weight: 300;
+
+    }
+
+    .promocion>figure>img,
+    .promocion-desktop>figure>img {
+        max-height: none;
+        max-width: 50%;
+    }
+    
+    /* ======================== TEMPLATE HOJAS DE CONTACTO  ========================*/
+
+    div.form-container {
+        flex-flow: row wrap;
+        height: 80vh;
+        width: 90%;
+        padding: 3vw 0;
+    }
+
+    #formulario-logeo {
+        flex-flow: row wrap;
+        gap: 1vw;
+    }
+
+    main.main-login {
+        height: 100%;
+        width: 48%;
+        gap: 0.5vw;
+    }
+
+    aside.captcha {
+        justify-content: flex-start;
+        gap: 1.5vw;
+        align-items: flex-stat;
+        width: 48%;
+        padding: 0;
+        border-top: none;
+        border-left: 1px solid #5555553b;
+    }
+
+    main.main-login>h2 {
+        font-size: 2vw;
+    }
+
+    main.main-login>label {
+        font-size: 1vw;
+        width: 70%;
+    }
+
+    #mensaje {
+        height: 5vw;
+        width: 80%;
+        padding: 0.5vw;
+        overflow: visible;
+        border-radius: 0.1vw;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        height: 1vw;
+        width: 80%;
+        font-size: 1vw;
+        padding: 0.8vw;
+        border-color: #fff;
+    }
+
+    aside.captcha>h2 {
+        font-size: 1.5vw;
+        font-weight: 400;
+    }
+
+    aside.captcha>p {
+        font-size: 1vw;
+    }
+
+    #imagen-captcha {
+        width: 10vw;
+
+    }
+
+    #input-captcha {
+        width: 40%;
+        font-size: 1vw;
+    }
+
+    #otra-img-captcha {
+        padding: 0.4vw;
+    }
+
+    #incorrecto,
+    #correcto {
+        font-size: 2vw;
+    }
+
+    #formulario-logeo > input#enviar {
+        margin: 0;
+    }
+
+
+
+    /* ======================== TEMPLATE TABLA HORARIOS ======================== */
+
+    .tabla-semanal {
+        font-size: 1vw;
+        width: fit-content;
+    }   
+
+    tbody.cuerpo-tabla td,
+    .encabezado-tabla th {
+        font-size: 1.5vw;
+        padding: 1vw 4vw;
+    }
+
+
+    /* ============================ TABLA DINAMICA  ===========================*/
+
+    .container-principal-tabla-dinamica {
+        flex-flow: row wrap;
+        width: 95%;
+        margin: 5vw 0;
+        gap: 3vw;
+    }
+
+    .tabla-container {
+        width: 100%;
+        padding: 1vw 0;
+        margin: 1vw 0;
+    }
+
+    .head-tabla-dinamica {
+        font-size: 1.5vw;
+    }
+
+    .head-tabla-dinamica th {
+        padding: 0;
+    }
+
+    #tabla-dinamica {
+        width: 100%;
+        margin: 1vw;
+    }
+
+    #cuerpo-tabla-dinamica td {
+        padding: 1vw 2vw;
+        font-size: 1vw;
+    }
+
+    /* Estilos para los botones dentro de las celdas */
+    .editar-btn,
+    .borrar-btn {
+        font-size: 1vw;
+        padding: 0.5vw;
+        margin: 0.5vw;
+        border-radius: 0.5vw;
+    }
+
+    /* Formulario de la pagina p/Tabla Dinamica */
+    #formulario-tabla-dinamica-agregar,
+    #formulario-tabla-dinamica-editar {
+        text-align: left;
+        width: 100%;
+        gap: 0.5vw;
+    }
+
+    .obligatorio,
+    #formulario-tabla-dinamica-agregar label{
+        width: 45%;
+        margin: 0.5vw 0;
+        font-size: 1vw;
+    }
+
+    #formulario-tabla-dinamica-agregar h2,
+    #formulario-tabla-dinamica-agregar h3
+    .tabla-container h2 {
+        width: 60%;
+        font-size: 4vw;
+    }
+
+
+    #formulario-tabla-dinamica-agregar input{
+        height: 2vw;
+    }
+
+    .form-editar-objeto {
+        width: 50%;
+        padding: 1vw 8vw;
+        margin: 0 25%;
+        font-size: 1.2vw;
+    }
+
+    #btn-agregar,
+    #editar {
+        border-radius: 0.5vw;
+        padding: 0.5vw 1vw;
+        font-size: 1.2vw;
+    }
+    
+
+}
